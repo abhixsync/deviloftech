@@ -1,0 +1,446 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775318098839,
+  "projectRoot": "C:\\Work\\Learn\\deviloftech",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "16.2.2",
+        "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.4",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.4",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "eslint",
+      "seed": "tsx scripts/seed.ts"
+    }
+  },
+  "conventions": {
+    "namingStyle": "camelCase",
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "scripts",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 5,
+      "lastAccessed": 1775318098822,
+      "keyFiles": [
+        "file.svg",
+        "globe.svg",
+        "next.svg",
+        "vercel.svg",
+        "window.svg"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1775318098822,
+      "keyFiles": [
+        "seed.ts"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1775318098827,
+      "keyFiles": [
+        "proxy.ts"
+      ]
+    },
+    "src\\app": {
+      "path": "src\\app",
+      "purpose": "Application code",
+      "fileCount": 4,
+      "lastAccessed": 1775318098828,
+      "keyFiles": [
+        "favicon.ico",
+        "globals.css",
+        "layout.tsx"
+      ]
+    },
+    "src\\components": {
+      "path": "src\\components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1775318098828,
+      "keyFiles": []
+    },
+    "src\\lib": {
+      "path": "src\\lib",
+      "purpose": "Library code",
+      "fileCount": 1,
+      "lastAccessed": 1775318098828,
+      "keyFiles": [
+        "mongodb.ts"
+      ]
+    },
+    "src\\types": {
+      "path": "src\\types",
+      "purpose": "Type definitions",
+      "fileCount": 1,
+      "lastAccessed": 1775318098828,
+      "keyFiles": [
+        "index.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "",
+      "accessCount": 29,
+      "lastAccessed": 1775342249880,
+      "type": "directory"
+    },
+    {
+      "path": "src\\app\\globals.css",
+      "accessCount": 25,
+      "lastAccessed": 1775386672618,
+      "type": "directory"
+    },
+    {
+      "path": "src\\app\\about\\page.tsx",
+      "accessCount": 11,
+      "lastAccessed": 1775389923963,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\page.tsx",
+      "accessCount": 10,
+      "lastAccessed": 1775389917717,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\blog\\[slug]\\page.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775334726541,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\posts\\new\\page.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775334727425,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\posts\\[id]\\page.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775334727834,
+      "type": "file"
+    },
+    {
+      "path": "src\\types\\index.ts",
+      "accessCount": 9,
+      "lastAccessed": 1775389807374,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\layout.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775394551302,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\profile\\page.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1775389568995,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\layout.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1775389841651,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\mongodb.ts",
+      "accessCount": 6,
+      "lastAccessed": 1775333617291,
+      "type": "file"
+    },
+    {
+      "path": "src",
+      "accessCount": 6,
+      "lastAccessed": 1775333645643,
+      "type": "directory"
+    },
+    {
+      "path": "src\\app",
+      "accessCount": 6,
+      "lastAccessed": 1775333670474,
+      "type": "directory"
+    },
+    {
+      "path": "src\\app\\projects\\page.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1775334374929,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\upload\\route.ts",
+      "accessCount": 6,
+      "lastAccessed": 1775334544564,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\projects\\[slug]\\page.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775334423844,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\posts\\route.ts",
+      "accessCount": 5,
+      "lastAccessed": 1775334646763,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\admin\\AdminForm.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775389928890,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\experience\\page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775334357417,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\skills\\page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775334361824,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\achievements\\page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775334364906,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\contact\\page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775334366753,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 4,
+      "lastAccessed": 1775334530367,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\posts\\page.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775334270853,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\videos\\route.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775334648640,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\news\\route.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775334653054,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\resources\\route.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775334654374,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\page.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775334715059,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\Experience.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334279080,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\posts\\[id]\\route.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334279094,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\Achievement.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334285147,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\Skill.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334285186,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\Education.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334285248,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\ContactSubmission.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334285287,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\login\\route.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775334288298,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\ui\\RevealWrapper.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775334429778,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\contact\\route.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775335181221,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\Profile.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775389553628,
+      "type": "file"
+    },
+    {
+      "path": "scripts\\seed.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775318399890,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\projects\\ProjectsGrid.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775320147735,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\Project.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775320195113,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\projects\\route.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775320843507,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\api\\admin\\projects\\[id]\\route.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775320847956,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\projects\\page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775320864933,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\projects\\new\\page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775320876291,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\admin\\projects\\[id]\\page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775320887353,
+      "type": "file"
+    },
+    {
+      "path": "src\\lib\\models\\BlogPost.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775333605114,
+      "type": "file"
+    },
+    {
+      "path": "next.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775333617376,
+      "type": "file"
+    },
+    {
+      "path": "src\\proxy.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775333617420,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
