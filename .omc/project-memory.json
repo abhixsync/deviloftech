@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775318098839,
+  "lastScanned": 1775490100769,
   "projectRoot": "C:\\Work\\Learn\\deviloftech",
   "techStack": {
     "languages": [
@@ -75,22 +75,23 @@
     "public": {
       "path": "public",
       "purpose": "Public files",
-      "fileCount": 5,
-      "lastAccessed": 1775318098822,
+      "fileCount": 6,
+      "lastAccessed": 1775490100750,
       "keyFiles": [
         "file.svg",
         "globe.svg",
         "next.svg",
-        "vercel.svg",
-        "window.svg"
+        "og-default.png",
+        "vercel.svg"
       ]
     },
     "scripts": {
       "path": "scripts",
       "purpose": "Build/utility scripts",
-      "fileCount": 1,
-      "lastAccessed": 1775318098822,
+      "fileCount": 2,
+      "lastAccessed": 1775490100750,
       "keyFiles": [
+        "generate-og.mjs",
         "seed.ts"
       ]
     },
@@ -98,7 +99,7 @@
       "path": "src",
       "purpose": "Source code",
       "fileCount": 1,
-      "lastAccessed": 1775318098827,
+      "lastAccessed": 1775490100755,
       "keyFiles": [
         "proxy.ts"
       ]
@@ -107,10 +108,10 @@
       "path": "src\\app",
       "purpose": "Application code",
       "fileCount": 4,
-      "lastAccessed": 1775318098828,
+      "lastAccessed": 1775490100756,
       "keyFiles": [
-        "favicon.ico",
         "globals.css",
+        "icon.svg",
         "layout.tsx"
       ]
     },
@@ -118,14 +119,14 @@
       "path": "src\\components",
       "purpose": "UI components",
       "fileCount": 0,
-      "lastAccessed": 1775318098828,
+      "lastAccessed": 1775490100756,
       "keyFiles": []
     },
     "src\\lib": {
       "path": "src\\lib",
       "purpose": "Library code",
       "fileCount": 1,
-      "lastAccessed": 1775318098828,
+      "lastAccessed": 1775490100756,
       "keyFiles": [
         "mongodb.ts"
       ]
@@ -134,7 +135,7 @@
       "path": "src\\types",
       "purpose": "Type definitions",
       "fileCount": 1,
-      "lastAccessed": 1775318098828,
+      "lastAccessed": 1775490100756,
       "keyFiles": [
         "index.ts"
       ]
@@ -209,8 +210,8 @@
     },
     {
       "path": "src\\lib\\mongodb.ts",
-      "accessCount": 6,
-      "lastAccessed": 1775333617291,
+      "accessCount": 7,
+      "lastAccessed": 1775400269915,
       "type": "file"
     },
     {
