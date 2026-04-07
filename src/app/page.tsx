@@ -9,6 +9,7 @@ import { NewsItem } from '@/lib/models/NewsItem'
 import { Resource } from '@/lib/models/Resource'
 import HeroFlames from '@/components/home/HeroFlames'
 import RevealWrapper from '@/components/ui/RevealWrapper'
+import NewsletterSignup from '@/components/ui/NewsletterSignup'
 import type { IProfile, IVideo, IBlogPost, INewsItem, IResource } from '@/types'
 
 async function getData() {
@@ -263,6 +264,17 @@ export default async function HomePage() {
                 ◈ Follow on Instagram
               </a>
             </div>
+          </div>
+        </section>
+      </RevealWrapper>
+
+      <div className="divider" />
+
+      {/* ═══ NEWSLETTER SIGNUP ═══ */}
+      <RevealWrapper>
+        <section style={{ padding: '80px 0' }}>
+          <div className="container">
+            <NewsletterSignup />
           </div>
         </section>
       </RevealWrapper>

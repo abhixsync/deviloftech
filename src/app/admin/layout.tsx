@@ -16,6 +16,7 @@ const navItems = [
   { href: '/admin/achievements', label: 'Achievements', icon: '🏆' },
   { href: '/admin/education', label: 'Education', icon: '🎓' },
   { href: '/admin/contact', label: 'Contact', icon: '📬' },
+  { href: '/admin/newsletter', label: 'Newsletter', icon: '📧' },
   { href: '/admin/site-settings', label: 'Site Settings', icon: '⚙' },
 ]
 

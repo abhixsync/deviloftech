@@ -16,6 +16,7 @@ const BlogPostSchema = new Schema(
     published: { type: Boolean, default: false },
     publishedAt: Date,
     sortOrder: { type: Number, default: 0 },
+    views: { type: Number, default: 0 },
   },
   { timestamps: true }
 )

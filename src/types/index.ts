@@ -92,6 +92,7 @@ export interface IBlogPost {
   published: boolean
   publishedAt?: Date
   sortOrder: number
+  views?: number
   createdAt?: Date
   updatedAt?: Date
 }

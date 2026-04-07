@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { IBlogPost } from '@/types'
 import MarkdownRenderer from '@/components/content/MarkdownRenderer'
+import ReadingProgress from '@/components/ui/ReadingProgress'
+import ViewTracker from '@/components/ui/ViewTracker'
 
 async function getPost(slug: string): Promise<IBlogPost | null> {
   await connectDB()
@@ -60,6 +62,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <article style={{ minHeight: '100vh', paddingTop: 120, paddingBottom: 100 }}>
+      <ReadingProgress />
+      <ViewTracker slug={post.slug} />
       <div className="container" style={{ maxWidth: 780 }}>
         {/* Back */}
         <Link href="/blog" style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.16em', color: 'var(--parchment-dim)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 40 }}>

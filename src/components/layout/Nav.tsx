@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BrandLogo from '@/components/ui/BrandLogo'
+import SearchModal from '@/components/ui/SearchModal'
 
 const links = [
   { href: '/videos', label: 'Videos' },
@@ -22,6 +23,18 @@ interface Props {
 export default function Nav({ siteName = 'DevilOfTech' }: Props) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setSearchOpen((v) => !v)
+      }
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [])
 
   if (pathname.startsWith('/admin')) return null
 
@@ -43,11 +56,22 @@ export default function Nav({ siteName = 'DevilOfTech' }: Props) {
           ))}
         </ul>
 
-        <button className="nav-hamburger" onClick={() => setOpen(true)} aria-label="Open menu">
-          <span />
-          <span />
-          <span />
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button
+            className="btn-ghost"
+            onClick={() => setSearchOpen(true)}
+            aria-label="Open search"
+            style={{ fontSize: 11, fontFamily: 'var(--mono)', padding: '4px 8px' }}
+          >
+            <span className="nav-search-desktop">⌘K</span>
+            <span className="nav-search-mobile">🔍</span>
+          </button>
+          <button className="nav-hamburger" onClick={() => setOpen(true)} aria-label="Open menu">
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </nav>
 
       {/* Mobile overlay */}
@@ -73,6 +97,8 @@ export default function Nav({ siteName = 'DevilOfTech' }: Props) {
           </Link>
         ))}
       </div>
+
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   )
 }

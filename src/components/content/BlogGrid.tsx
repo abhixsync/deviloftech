@@ -71,8 +71,13 @@ export default function BlogGrid({ posts }: { posts: IBlogPost[] }) {
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.18em', color: CATEGORY_COLORS[post.category] || 'var(--ember)', textTransform: 'uppercase' }}>
                     {post.category}
                   </span>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.35)' }}>
-                    {formatDate(post.publishedAt)}
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.35)' }}>
+                      {formatDate(post.publishedAt)}
+                    </span>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.35)' }}>
+                      👁 {post.views || 0}
+                    </span>
                   </span>
                 </div>
                 <h2 style={{ fontFamily: 'var(--cinzel)', fontSize: 16, fontWeight: 700, color: 'var(--parchment)', lineHeight: 1.4, marginBottom: 10 }}>
