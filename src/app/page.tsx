@@ -314,6 +314,15 @@ export default async function HomePage() {
                 <div className="teaser-arrow">Explore →</div>
               </Link>
             </RevealWrapper>
+            <RevealWrapper>
+              <Link href="/playground" className="teaser-card">
+                <div className="teaser-num">🤖</div>
+                <div className="teaser-label">Interactive</div>
+                <div className="teaser-title">AI Playground</div>
+                <p className="teaser-desc">Test AI live — explain concepts, generate code, and summarize text powered by Claude.</p>
+                <div className="teaser-arrow">Try It →</div>
+              </Link>
+            </RevealWrapper>
           </div>
         </div>
       </section>

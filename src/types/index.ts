@@ -134,6 +134,18 @@ export interface ISiteSetting {
   copyrightName: string
 }
 
+export interface IRoadmapItem {
+  _id?: string
+  title: string
+  description: string
+  status: 'planned' | 'in-progress' | 'shipped'
+  category: 'feature' | 'improvement' | 'fix' | 'content' | 'design'
+  shippedAt?: Date
+  sortOrder: number
+  published: boolean
+  createdAt?: Date
+}
+
 export interface IResource {
   _id?: string
   name: string

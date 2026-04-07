@@ -649,6 +649,8 @@ nav {
   background: var(--parchment-dim);
   transition: all 0.3s;
 }
+.nav-search-mobile { display: none; }
+.nav-search-desktop { display: inline; }
 
 .nav-mobile {
   display: none;
@@ -773,6 +775,8 @@ footer {
   nav { padding: 16px 24px; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-search-desktop { display: none; }
+  .nav-search-mobile { display: inline; }
   .container { padding: 0 24px; }
   section { padding: 72px 0; }
   .hero-inner { grid-template-columns: 1fr; }

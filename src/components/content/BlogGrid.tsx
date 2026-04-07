@@ -89,9 +89,14 @@ export default function BlogGrid({ posts }: { posts: IBlogPost[] }) {
                 {post.tags && post.tags.length > 0 && (
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 14 }}>
                     {post.tags.slice(0, 3).map(tag => (
-                      <span key={tag} style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.1em', color: 'var(--parchment-dim)', background: 'rgba(201,168,76,0.08)', padding: '3px 8px', borderRadius: 2 }}>
+                      <a
+                        key={tag}
+                        href={`/tags/${encodeURIComponent(tag)}`}
+                        onClick={e => e.stopPropagation()}
+                        style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.1em', color: 'var(--parchment-dim)', background: 'rgba(201,168,76,0.08)', padding: '3px 8px', borderRadius: 2, textDecoration: 'none' }}
+                      >
                         {tag}
-                      </span>
+                      </a>
                     ))}
                   </div>
                 )}

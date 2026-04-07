@@ -9,6 +9,7 @@ const navItems = [
   { href: '/admin/videos', label: 'Videos', icon: '▶' },
   { href: '/admin/news', label: 'News', icon: '📡' },
   { href: '/admin/resources', label: 'Resources', icon: '🔧' },
+  { href: '/admin/roadmap', label: 'Roadmap', icon: '🗺' },
   { href: '/admin/projects', label: 'Projects', icon: '⚙' },
   { href: '/admin/profile', label: 'Profile', icon: '👤' },
   { href: '/admin/experience', label: 'Experience', icon: '💼' },

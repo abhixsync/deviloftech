@@ -16,6 +16,15 @@ async function getPost(slug: string): Promise<IBlogPost | null> {
   return JSON.parse(JSON.stringify(doc))
 }
 
+async function getRelatedPosts(category: string, currentSlug: string): Promise<IBlogPost[]> {
+  await connectDB()
+  const docs = await BlogPost.find({ category, slug: { $ne: currentSlug }, published: true })
+    .sort({ publishedAt: -1 })
+    .limit(3)
+    .lean()
+  return JSON.parse(JSON.stringify(docs))
+}
+
 function formatDate(d?: Date | string) {
   if (!d) return ''
   return new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -59,6 +68,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) notFound()
+
+  const relatedPosts = await getRelatedPosts(post.category, post.slug)
 
   return (
     <article style={{ minHeight: '100vh', paddingTop: 120, paddingBottom: 100 }}>
@@ -110,6 +121,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <span key={tag} style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--parchment-dim)', background: 'rgba(201,168,76,0.08)', padding: '5px 12px', borderRadius: 2, border: '1px solid rgba(201,168,76,0.15)' }}>
                   {tag}
                 </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Related Posts */}
+        {relatedPosts.length > 0 && (
+          <div style={{ marginTop: 60, paddingTop: 40, borderTop: '1px solid rgba(201,168,76,0.12)' }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.2em', color: 'var(--parchment-dim)', marginBottom: 24 }}>RELATED ARTICLES</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 16 }}>
+              {relatedPosts.map(p => (
+                <Link key={p.slug} href={`/blog/${p.slug}`} style={{ textDecoration: 'none', background: 'rgba(44,36,32,0.4)', border: '1px solid rgba(201,168,76,0.12)', borderRadius: 6, padding: 18, display: 'block' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.2em', color: CATEGORY_COLORS[p.category] || 'var(--ember)', textTransform: 'uppercase', opacity: 0.8 }}>
+                      {p.category}
+                    </span>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.4)' }}>
+                      {formatDate(p.publishedAt)}
+                    </span>
+                  </div>
+                  <div style={{ fontFamily: 'var(--cinzel)', fontSize: 14, fontWeight: 700, color: 'var(--parchment)', lineHeight: 1.3, marginBottom: 8 }}>
+                    {p.title}
+                  </div>
+                  {p.excerpt && (
+                    <div style={{ fontFamily: 'var(--serif)', fontSize: 13, color: 'var(--parchment-dim)', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      {p.excerpt}
+                    </div>
+                  )}
+                </Link>
               ))}
             </div>
           </div>
