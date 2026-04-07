@@ -1,13 +1,14 @@
-import mongoose, { Schema, model, models } from 'mongoose'
+import { Schema, model, models } from 'mongoose'
 
 const ResourceSchema = new Schema(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
-    url: { type: String, required: true },
+    url: { type: String },
+    fileUrl: { type: String },
     category: {
       type: String,
-      enum: ['tool', 'course', 'book', 'channel', 'library', 'other'],
+      enum: ['tool', 'course', 'book', 'channel', 'library', 'guide', 'cheatsheet', 'template', 'roadmap', 'podcast', 'community', 'docs', 'other'],
       default: 'tool',
     },
     icon: String,

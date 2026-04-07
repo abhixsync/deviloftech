@@ -3,11 +3,22 @@
 import { useState } from 'react'
 import type { IResource } from '@/types'
 
-const CATEGORIES = ['all', 'tool', 'course', 'book', 'channel', 'library', 'other']
+const CATEGORIES = ['all', 'tool', 'course', 'book', 'channel', 'library', 'guide', 'cheatsheet', 'template', 'roadmap', 'podcast', 'community', 'docs', 'other']
 
 const CATEGORY_COLORS: Record<string, string> = {
-  tool: 'var(--ember)', course: 'var(--gold)', book: '#4a9eff',
-  channel: '#4caf50', library: '#e040fb', other: 'var(--parchment-dim)',
+  tool: 'var(--ember)',
+  course: 'var(--gold)',
+  book: '#4a9eff',
+  channel: '#4caf50',
+  library: '#e040fb',
+  guide: '#ff9800',
+  cheatsheet: '#00bcd4',
+  template: '#8bc34a',
+  roadmap: '#ff5722',
+  podcast: '#9c27b0',
+  community: '#03a9f4',
+  docs: '#607d8b',
+  other: 'var(--parchment-dim)',
 }
 
 export default function ResourcesGrid({ resources }: { resources: IResource[] }) {
@@ -46,7 +57,7 @@ export default function ResourcesGrid({ resources }: { resources: IResource[] })
         {filtered.map((res) => (
           <a
             key={res._id}
-            href={res.url}
+            href={res.fileUrl || res.url || '#'}
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none' }}
@@ -80,7 +91,9 @@ export default function ResourcesGrid({ resources }: { resources: IResource[] })
                 <span style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.15em', color: CATEGORY_COLORS[res.category] || 'var(--ember)', textTransform: 'uppercase' }}>
                   {res.category}
                 </span>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.3)' }}>↗ Visit</span>
+                <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.3)' }}>
+                  {res.fileUrl ? '↓ Download' : '↗ Visit'}
+                </span>
               </div>
             </div>
           </a>

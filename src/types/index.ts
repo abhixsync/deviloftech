@@ -137,8 +137,9 @@ export interface IResource {
   _id?: string
   name: string
   description: string
-  url: string
-  category: 'tool' | 'course' | 'book' | 'channel' | 'library' | 'other'
+  url?: string
+  fileUrl?: string
+  category: 'tool' | 'course' | 'book' | 'channel' | 'library' | 'guide' | 'cheatsheet' | 'template' | 'roadmap' | 'podcast' | 'community' | 'docs' | 'other'
   icon?: string
   isFree: boolean
   published: boolean

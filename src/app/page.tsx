@@ -6,23 +6,26 @@ import { Profile } from '@/lib/models/Profile'
 import { Video } from '@/lib/models/Video'
 import { BlogPost } from '@/lib/models/BlogPost'
 import { NewsItem } from '@/lib/models/NewsItem'
+import { Resource } from '@/lib/models/Resource'
 import HeroFlames from '@/components/home/HeroFlames'
 import RevealWrapper from '@/components/ui/RevealWrapper'
-import type { IProfile, IVideo, IBlogPost, INewsItem } from '@/types'
+import type { IProfile, IVideo, IBlogPost, INewsItem, IResource } from '@/types'
 
 async function getData() {
   await connectDB()
-  const [profileDoc, videoDoc, postDocs, newsDocs] = await Promise.all([
+  const [profileDoc, videoDoc, postDocs, newsDocs, resourceDocs] = await Promise.all([
     Profile.findOne({}).lean(),
     Video.findOne({ published: true }).sort({ publishedAt: -1 }).lean(),
     BlogPost.find({ published: true }).sort({ publishedAt: -1 }).limit(3).lean(),
     NewsItem.find({ published: true }).sort({ publishedAt: -1 }).limit(3).lean(),
+    Resource.find({ published: true }).sort({ createdAt: -1 }).limit(3).lean(),
   ])
   return {
     profile: profileDoc ? (JSON.parse(JSON.stringify(profileDoc)) as IProfile) : null,
     video: videoDoc ? (JSON.parse(JSON.stringify(videoDoc)) as IVideo) : null,
     posts: JSON.parse(JSON.stringify(postDocs)) as IBlogPost[],
     news: JSON.parse(JSON.stringify(newsDocs)) as INewsItem[],
+    resources: JSON.parse(JSON.stringify(resourceDocs)) as IResource[],
   }
 }
 
@@ -37,7 +40,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 }
 
 export default async function HomePage() {
-  const { profile, video, posts, news } = await getData()
+  const { profile, video, posts, news, resources } = await getData()
 
   const siteName  = profile?.name    ?? 'DevilOfTech'
   const heroTag   = profile?.tagline ?? 'ORGANIC · MACHINE'
@@ -184,6 +187,56 @@ export default async function HomePage() {
                       <p style={{ fontFamily: 'var(--serif)', fontSize: 14, color: 'var(--parchment-dim)', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{item.summary}</p>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </RevealWrapper>
+      )}
+
+      <div className="divider" />
+
+      {/* ═══ LATEST RESOURCES ═══ */}
+      {resources.length > 0 && (
+        <RevealWrapper>
+          <section style={{ padding: '80px 0' }}>
+            <div className="container">
+              <div className="section-eyebrow">Curated</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 40 }}>
+                <div className="section-title" style={{ marginBottom: 0 }}>Latest Resources</div>
+                <Link href="/resources" style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', color: 'var(--gold)', textDecoration: 'none' }}>View All →</Link>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20 }}>
+                {resources.map((res) => (
+                  <a
+                    key={res._id}
+                    href={res.fileUrl || res.url || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <div
+                      className="content-card"
+                      style={{ background: 'rgba(44,36,32,0.4)', border: '1px solid rgba(201,168,76,0.12)', borderRadius: 6, padding: '22px 22px', height: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                          {res.icon && <span style={{ fontSize: 20 }}>{res.icon}</span>}
+                          <h3 style={{ fontFamily: 'var(--cinzel)', fontSize: 15, fontWeight: 700, color: 'var(--parchment)', lineHeight: 1.3 }}>{res.name}</h3>
+                        </div>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 8, letterSpacing: '0.12em', color: res.isFree ? '#4caf50' : 'var(--gold)', border: `1px solid ${res.isFree ? '#4caf50' : 'var(--gold)'}`, padding: '3px 7px', borderRadius: 2, opacity: 0.75, flexShrink: 0 }}>
+                          {res.isFree ? 'FREE' : 'PAID'}
+                        </span>
+                      </div>
+                      <p style={{ fontFamily: 'var(--serif)', fontSize: 14, color: 'var(--parchment-dim)', lineHeight: 1.6, flex: 1, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                        {res.description}
+                      </p>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.15em', color: 'var(--ember)', textTransform: 'uppercase' }}>{res.category}</span>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(245,237,216,0.3)' }}>{res.fileUrl ? '↓ Download' : '↗ Visit'}</span>
+                      </div>
+                    </div>
+                  </a>
                 ))}
               </div>
             </div>

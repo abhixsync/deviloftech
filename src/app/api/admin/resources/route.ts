@@ -14,17 +14,18 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, description, url, category, icon, isFree, published } = body
+    const { name, description, url, fileUrl, category, icon, isFree, published } = body
 
-    if (!name || !description || !url) {
-      return NextResponse.json({ error: 'name, description, and url are required' }, { status: 400 })
+    if (!name || !description || (!url && !fileUrl)) {
+      return NextResponse.json({ error: 'name, description, and either url or fileUrl are required' }, { status: 400 })
     }
 
     await connectDB()
     const resource = await Resource.create({
       name,
       description,
-      url,
+      url: url || '',
+      fileUrl: fileUrl || '',
       category: category || 'tool',
       icon: icon || '',
       isFree: isFree ?? true,
